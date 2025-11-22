@@ -17,8 +17,15 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Backend funcionando correctamente ❤️")
 
 urlpatterns = [
+    path('', home),          # 👈 nueva ruta raíz
     path('admin/', admin.site.urls),
-    path('api/', include('corazon.urls')),   # ⭐ Importante
+    path('api/', include('corazon.urls')),
 ]
+
+
